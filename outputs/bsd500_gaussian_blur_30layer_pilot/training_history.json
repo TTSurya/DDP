@@ -1,0 +1,42 @@
+[
+  {
+    "epoch": 1,
+    "train_mse": 0.004662017759983428,
+    "restored_psnr": 24.23144860926649,
+    "restored_ssim": 0.5816029906272888,
+    "backprojection_psnr": 23.268853589870524,
+    "backprojection_ssim": 0.538213312625885
+  },
+  {
+    "epoch": 2,
+    "train_mse": 0.005648593374644406,
+    "restored_psnr": 24.249299374011144,
+    "restored_ssim": 0.5820299386978149,
+    "backprojection_psnr": 23.268853589870524,
+    "backprojection_ssim": 0.538213312625885
+  },
+  {
+    "epoch": 3,
+    "train_mse": 0.005134397040819749,
+    "restored_psnr": 24.25832579107026,
+    "restored_ssim": 0.5824270844459534,
+    "backprojection_psnr": 23.268853589870524,
+    "backprojection_ssim": 0.538213312625885
+  },
+  {
+    "epoch": 4,
+    "train_mse": 0.005201421488891356,
+    "restored_psnr": 24.264791946865277,
+    "restored_ssim": 0.5826291441917419,
+    "backprojection_psnr": 23.268853589870524,
+    "backprojection_ssim": 0.538213312625885
+  },
+  {
+    "epoch": 5,
+    "train_mse": 0.0056879447074607015,
+    "restored_psnr": 24.268564088452955,
+    "restored_ssim": 0.5828224420547485,
+    "backprojection_psnr": 23.268853589870524,
+    "backprojection_ssim": 0.538213312625885
+  }
+]
