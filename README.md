@@ -87,14 +87,17 @@ during a training run. The inherited wavelet-threshold parameterization is
 currently fixed to 64x64 RGB patches with three decomposition levels, matching
 the existing project model.
 
-### BSD500 Gaussian-blur experiment
+### BSD500 deblurring experiment
 
-The experiment uses the fixed periodic 9x9 Gaussian blur (`sigma=2`) as A and
-AWGN with standard deviation `5/255`. It samples and corrupts 64x64 patches
-on-the-fly: 200 BSD500 train images for optimization, 100 validation images
-for checkpoint selection, and 200 held-out test images. It reports PSNR and
-SSIM for the adjoint/backprojection baseline and the restored patches. The
-archive and generated weights/metrics stay under the ignored `data/` and
+The experiment sets A to a fixed periodic sparse-kernel blur (default 15x15,
+90% sparsity), with the exact adjoint and singular values computed from its
+Fourier response. This models the forward operator in a deblurring problem;
+the reconstruction estimates x from y = A x + n. AWGN has standard deviation
+`5/255`. It samples and corrupts 64x64 patches on-the-fly: the 200 BSD500
+train images are used for optimization, 100 validation images for checkpoint
+selection, and all 200 held-out test images for final evaluation. It reports
+PSNR and SSIM for the adjoint/backprojection baseline and restored patches.
+The archive and generated weights/metrics stay under the ignored `data/` and
 `outputs/` folders.
 
 ```
@@ -104,15 +107,17 @@ python run_bsd500_restoration.py
 
 Training defaults follow the paper's 30-layer, 50-epoch setup. On a CPU-only
 machine, use `--depth`, `--epochs`, `--samples-per-epoch`, and `--batch-size`
-to reduce the run time. The selected checkpoint is saved as
-`outputs/bsd500_gaussian_blur/best_model.pth`; the final held-out metrics are
-written to `test_metrics.json` in the same folder. The 64x64 patch evaluation
+to reduce the run time. Adjust the blur with `--blur-kernel-size` and
+`--blur-sparsity`. The selected checkpoint is saved as
+`outputs/bsd500_deblurring/best_model.pth`; final held-out metrics are written
+to `test_metrics.json` in the same folder. The 64x64 patch evaluation
 matches the model's training boundary convention; it is a patch restoration
 benchmark rather than a full-resolution tiled-image benchmark.
 
-### Initial CPU pilot
+### Earlier Gaussian-blur pilot
 
-The included 30-layer pilot used 5 epochs and 64 generated patches per epoch.
+The included pilot predates the deblurring operator change and used Gaussian
+blur, 30 layers, 5 epochs, and 64 generated patches per epoch.
 On one deterministic 64x64 crop from each of the 200 held-out test images, the
 adjoint baseline scored 24.53 dB / 0.6034 SSIM and the model scored 25.61 dB /
 0.6459 SSIM. The certified product bound from the constrained layers was

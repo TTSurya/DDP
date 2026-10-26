@@ -23,36 +23,42 @@ from torch.utils.data import DataLoader, Dataset
 from linear_inverse import ContractiveInverseNet
 
 
-class GaussianBlurOperator:
-    """Fixed 9x9, sigma-2 RGB blur with periodic boundary conditions."""
+class CircularBlurOperator:
+    """Fixed sparse-kernel blur used as A in the deblurring problem.
 
-    def __init__(self, image_size=64, device="cpu", kernel_size=9, sigma=2.0):
+    Circular convolution makes A block-circulant, so its singular values are
+    exactly the magnitudes of the kernel's 2-D Fourier response.
+    """
+
+    def __init__(self, image_size=64, device="cpu", kernel_size=15,
+                 sparsity=0.9, seed=0):
         if kernel_size % 2 != 1:
             raise ValueError("kernel_size must be odd")
-        coords = torch.arange(kernel_size, dtype=torch.float64) - kernel_size // 2
-        one_d = torch.exp(-(coords**2) / (2 * sigma**2))
-        one_d /= one_d.sum()
-        kernel = torch.outer(one_d, one_d).float()
-        self.radius = kernel_size // 2
-        self.kernel = kernel[None, None].repeat(3, 1, 1, 1).to(device)
-
-        # For circular convolution, the DFT diagonalizes A exactly.
-        response_grid = torch.zeros((image_size, image_size), dtype=torch.float64)
-        for iy in range(kernel_size):
-            for ix in range(kernel_size):
-                dy, dx = iy - self.radius, ix - self.radius
-                response_grid[dy % image_size, dx % image_size] = kernel[iy, ix]
-        magnitudes = torch.fft.fft2(response_grid).abs()
+        if not 0 <= sparsity < 1:
+            raise ValueError("sparsity must be in [0, 1)")
+        rng = np.random.default_rng(seed)
+        kernel = rng.random((kernel_size, kernel_size), dtype=np.float32)
+        kernel *= (rng.random((kernel_size, kernel_size)) > sparsity)
+        if kernel.sum() == 0:
+            kernel[kernel_size // 2, kernel_size // 2] = 1
+        kernel /= kernel.sum()
+        self.kernel = torch.from_numpy(kernel).to(device)
+        response = torch.fft.fft2(torch.fft.ifftshift(self.kernel),
+                                  s=(image_size, image_size))
+        self.response = response
+        magnitudes = response.abs()
         self.sigma_max = float(magnitudes.max())
         self.sigma_min = float(magnitudes.min())
 
+    def _apply(self, x, response):
+        spectrum = torch.fft.fft2(x, dim=(-2, -1))
+        return torch.fft.ifft2(spectrum * response, dim=(-2, -1)).real
+
     def forward(self, x):
-        x = F.pad(x, (self.radius,) * 4, mode="circular")
-        return F.conv2d(x, self.kernel, groups=3)
+        return self._apply(x, self.response)
 
     def adjoint(self, y):
-        # The Gaussian kernel is symmetric, so A^T = A under periodic borders.
-        return self.forward(y)
+        return self._apply(y, self.response.conj())
 
 
 class RandomPatchDataset(Dataset):
@@ -141,14 +147,16 @@ def main():
     parser.add_argument("--epochs", type=int, default=50)
     parser.add_argument("--samples-per-epoch", type=int, default=1024)
     parser.add_argument("--validation-samples", type=int, default=100)
-    parser.add_argument("--test-samples", type=int, default=400)
+    parser.add_argument("--test-samples", type=int, default=200)
     parser.add_argument("--batch-size", type=int, default=4)
     parser.add_argument("--depth", type=int, default=30)
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--noise-std", type=float, default=5 / 255)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "outputs" /
-                        "bsd500_gaussian_blur")
+                        "bsd500_deblurring")
+    parser.add_argument("--blur-kernel-size", type=int, default=15)
+    parser.add_argument("--blur-sparsity", type=float, default=0.9)
     args = parser.parse_args()
 
     random.seed(args.seed)
@@ -162,7 +170,9 @@ def main():
         if not (args.data_root / split).is_dir():
             raise FileNotFoundError(f"Missing BSD500 split: {args.data_root / split}")
 
-    operator = GaussianBlurOperator(device=device)
+    operator = CircularBlurOperator(device=device,
+                                    kernel_size=args.blur_kernel_size,
+                                    sparsity=args.blur_sparsity, seed=args.seed)
     model = ContractiveInverseNet(
         image_shape=(64, 64), sigma_max=operator.sigma_max,
         sigma_min=operator.sigma_min, depth=args.depth, levels=3, channels=3
@@ -177,7 +187,9 @@ def main():
     best_epoch = 0
     history = []
 
-    print(f"Device: {device}; A: Gaussian blur 9x9, sigma=2; AWGN sigma={args.noise_std:.6g}")
+    print(f"Device: {device}; A: circular {args.blur_kernel_size}x{args.blur_kernel_size} "
+          f"sparse blur (sparsity={args.blur_sparsity:g}); "
+          f"AWGN sigma={args.noise_std:.6g}")
     print(f"Singular values: sigma_max={operator.sigma_max:.8g}, "
           f"sigma_min={operator.sigma_min:.8g}; "
           f"gradient step 0 < gamma < {2 / operator.sigma_max**2:.8g}")
@@ -224,7 +236,9 @@ def main():
     for layer, q in zip(model.layers, gradient_bounds):
         network_bound *= q / (q + layer.epsilon)
     report = {
-        "operator": "periodic 9x9 Gaussian blur, sigma=2",
+        "operator": (f"periodic {args.blur_kernel_size}x{args.blur_kernel_size} "
+                     f"seeded sparse blur, sparsity={args.blur_sparsity:g}"),
+        "blur_kernel_seed": args.seed,
         "noise_std": args.noise_std,
         "epochs": args.epochs,
         "depth": args.depth,
