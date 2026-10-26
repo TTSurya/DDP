@@ -33,8 +33,6 @@ pip install -r requirements.txt
 
 🚀 Usage
 
-Run the scripts from inside the OUR_codes/ directory.
-
 🔹 Denoising
 
 python denoising_test.py
