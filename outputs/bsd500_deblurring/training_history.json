@@ -1,0 +1,402 @@
+[
+  {
+    "epoch": 1,
+    "train_mse": 0.007147255553263676,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 22.87438506712777,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.47280606627464294
+  },
+  {
+    "epoch": 2,
+    "train_mse": 0.006695738256439654,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 23.128291857925287,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.48313063383102417
+  },
+  {
+    "epoch": 3,
+    "train_mse": 0.0063803647976783395,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 23.35171288339542,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.49404481053352356
+  },
+  {
+    "epoch": 4,
+    "train_mse": 0.0064066097727391025,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 23.562548397881557,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5061644911766052
+  },
+  {
+    "epoch": 5,
+    "train_mse": 0.005787521560250752,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 23.7480841664123,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5179298520088196
+  },
+  {
+    "epoch": 6,
+    "train_mse": 0.005951664663484735,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 23.946546614518216,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5313794016838074
+  },
+  {
+    "epoch": 7,
+    "train_mse": 0.005822971587349457,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 24.145002870832062,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5454314351081848
+  },
+  {
+    "epoch": 8,
+    "train_mse": 0.005181228515766634,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 24.322831660189152,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5590464472770691
+  },
+  {
+    "epoch": 9,
+    "train_mse": 0.004939767239193316,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 24.505616508719612,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5729530453681946
+  },
+  {
+    "epoch": 10,
+    "train_mse": 0.004627765325381006,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 24.665980422338865,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5863905549049377
+  },
+  {
+    "epoch": 11,
+    "train_mse": 0.004463067615688487,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 24.82485265911102,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.5999414324760437
+  },
+  {
+    "epoch": 12,
+    "train_mse": 0.004440491273783209,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 24.982909034851332,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6133266687393188
+  },
+  {
+    "epoch": 13,
+    "train_mse": 0.003977050666890136,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.123525641519645,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6251242756843567
+  },
+  {
+    "epoch": 14,
+    "train_mse": 0.00403227681908902,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.250237403281993,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6365926265716553
+  },
+  {
+    "epoch": 15,
+    "train_mse": 0.003919698458503262,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.366770642292522,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6472137570381165
+  },
+  {
+    "epoch": 16,
+    "train_mse": 0.0037635528187820455,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.46104115527205,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6562326550483704
+  },
+  {
+    "epoch": 17,
+    "train_mse": 0.003714887792398258,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.510203256159343,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6604923009872437
+  },
+  {
+    "epoch": 18,
+    "train_mse": 0.0033903618666499824,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.54887104556677,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6641142964363098
+  },
+  {
+    "epoch": 19,
+    "train_mse": 0.0037026729087301646,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.593229993660685,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6681380271911621
+  },
+  {
+    "epoch": 20,
+    "train_mse": 0.003521972659655148,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.62942721203296,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.671654462814331
+  },
+  {
+    "epoch": 21,
+    "train_mse": 0.00354971619879052,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.66836172150424,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6750381588935852
+  },
+  {
+    "epoch": 22,
+    "train_mse": 0.003466619586561137,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.70200011222435,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6781229972839355
+  },
+  {
+    "epoch": 23,
+    "train_mse": 0.003473099678615199,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.734068350548345,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.681135892868042
+  },
+  {
+    "epoch": 24,
+    "train_mse": 0.0034530458977997114,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.768154872856748,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6841721534729004
+  },
+  {
+    "epoch": 25,
+    "train_mse": 0.003393956272759624,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.798642578275413,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6869103908538818
+  },
+  {
+    "epoch": 26,
+    "train_mse": 0.0035126669864666837,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.831566707286004,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6897305846214294
+  },
+  {
+    "epoch": 27,
+    "train_mse": 0.0031660684668395334,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.857164306722037,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6920100450515747
+  },
+  {
+    "epoch": 28,
+    "train_mse": 0.0031612634286375396,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.882321876352435,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6943324208259583
+  },
+  {
+    "epoch": 29,
+    "train_mse": 0.0032091942593979184,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.909693826480797,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.696513295173645
+  },
+  {
+    "epoch": 30,
+    "train_mse": 0.0030831984113319777,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.930270357436324,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.6983757615089417
+  },
+  {
+    "epoch": 31,
+    "train_mse": 0.003325917114580079,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.957883935621584,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7005553245544434
+  },
+  {
+    "epoch": 32,
+    "train_mse": 0.0032369675376457963,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.97837948502814,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.702444851398468
+  },
+  {
+    "epoch": 33,
+    "train_mse": 0.002957712439865645,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 25.99832408864696,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7039741277694702
+  },
+  {
+    "epoch": 34,
+    "train_mse": 0.0030014572377012882,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.013005240905024,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7048897743225098
+  },
+  {
+    "epoch": 35,
+    "train_mse": 0.003060155002913234,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.020844604432483,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7055628299713135
+  },
+  {
+    "epoch": 36,
+    "train_mse": 0.002980406518872769,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.030786851686326,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7063579559326172
+  },
+  {
+    "epoch": 37,
+    "train_mse": 0.003125305570392811,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.040241699848345,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7071399092674255
+  },
+  {
+    "epoch": 38,
+    "train_mse": 0.0029565232948698394,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.050314011521568,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7079555988311768
+  },
+  {
+    "epoch": 39,
+    "train_mse": 0.003157764288744147,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.0584006311737,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7086008191108704
+  },
+  {
+    "epoch": 40,
+    "train_mse": 0.0031323756386427704,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.067772296137672,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7092882394790649
+  },
+  {
+    "epoch": 41,
+    "train_mse": 0.003037049182694318,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.07540004975807,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7099816203117371
+  },
+  {
+    "epoch": 42,
+    "train_mse": 0.0030191882993904073,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.085958668470344,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7107740640640259
+  },
+  {
+    "epoch": 43,
+    "train_mse": 0.003007304118227694,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.094434963513034,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7115345597267151
+  },
+  {
+    "epoch": 44,
+    "train_mse": 0.0028870290404938714,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.10236151356365,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7120875716209412
+  },
+  {
+    "epoch": 45,
+    "train_mse": 0.003090912821562597,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.11079397372511,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7127182483673096
+  },
+  {
+    "epoch": 46,
+    "train_mse": 0.003032537880471864,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.119039221447224,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7133674025535583
+  },
+  {
+    "epoch": 47,
+    "train_mse": 0.0028370990551138675,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.12709456412246,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7139548659324646
+  },
+  {
+    "epoch": 48,
+    "train_mse": 0.0028498142480657407,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.134075567355634,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7145313024520874
+  },
+  {
+    "epoch": 49,
+    "train_mse": 0.0029143374597424554,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.138388514849815,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7148776054382324
+  },
+  {
+    "epoch": 50,
+    "train_mse": 0.003080038303778565,
+    "backprojection_psnr": 20.957252994312135,
+    "restored_psnr": 26.148269369691302,
+    "backprojection_ssim": 0.4314229190349579,
+    "restored_ssim": 0.7156527638435364
+  }
+]

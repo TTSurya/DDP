@@ -1,17 +1,13 @@
-"""Train/evaluate the contractive model on BSDS500 for known Gaussian blur."""
+"""Train/evaluate the contractive model on BSDS500 for sparse-kernel deblurring."""
 
 from __future__ import annotations
 
 import argparse
 import json
 import random
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-LOCAL_DEPS = ROOT / "data" / "pydeps"
-if LOCAL_DEPS.exists():
-    sys.path.insert(0, str(LOCAL_DEPS))
 
 import numpy as np
 import torch
